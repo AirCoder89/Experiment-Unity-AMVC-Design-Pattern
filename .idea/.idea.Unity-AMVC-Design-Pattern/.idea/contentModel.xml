@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\SBS\.Rider2018.3\config\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\SBS\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\SBS\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Unity-AMVC-Design-Pattern.168755110.00" t="ExcludeRecursive" />
+    <e p="D:\Project2020\GitHub\Unity-AMVC-Design-Pattern" t="IncludeRecursive">
+      <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="JsonDotNet" t="Include">
+          <e p="link.xml" t="Include" />
+        </e>
+        <e p="Plugins" t="Include">
+          <e p="Demigiant" t="Include">
+            <e p="DOTween" t="Include">
+              <e p="Modules" t="Include">
+                <e p="DOTweenModuleAudio.cs" t="Include" />
+                <e p="DOTweenModulePhysics.cs" t="Include" />
+                <e p="DOTweenModulePhysics2D.cs" t="Include" />
+                <e p="DOTweenModuleSprite.cs" t="Include" />
+                <e p="DOTweenModuleUI.cs" t="Include" />
+                <e p="DOTweenModuleUnityVersion.cs" t="Include" />
+                <e p="DOTweenModuleUtils.cs" t="Include" />
+              </e>
+              <e p="readme.txt" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="RestClient" t="Include">
+          <e p="packages" t="Include">
+            <e p="Proyecto26.RestClient" t="Include">
+              <e p="Helpers" t="Include">
+                <e p="Common.cs" t="Include" />
+                <e p="Extensions.cs" t="Include" />
+                <e p="HttpBase.cs" t="Include" />
+                <e p="JsonHelper.cs" t="Include" />
+                <e p="RequestException.cs" t="Include" />
+                <e p="RequestHelper.cs" t="Include" />
+                <e p="RequestHelperExtension.cs" t="Include" />
+                <e p="ResponseHelper.cs" t="Include" />
+                <e p="StaticCoroutine.cs" t="Include" />
+              </e>
+              <e p="RestClient.cs" t="Include" />
+              <e p="RestClientPromise.cs" t="Include" />
+            </e>
+            <e p="RSG.Promise" t="Include">
+              <e p="EnumerableExt.cs" t="Include" />
+              <e p="Exceptions" t="Include">
+                <e p="PromiseException.cs" t="Include" />
+                <e p="PromiseStateException.cs" t="Include" />
+              </e>
+              <e p="Promise.cs" t="Include" />
+              <e p="Promise_NonGeneric.cs" t="Include" />
+              <e p="PromiseHelpers.cs" t="Include" />
+              <e p="PromiseTimer.cs" t="Include" />
+              <e p="Tuple.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Core" t="Include">
+            <e p="AppController.cs" t="Include" />
+            <e p="Application.cs" t="Include" />
+            <e p="AppModel.cs" t="Include" />
+            <e p="AppPanel.cs" t="Include" />
+            <e p="AppScene.cs" t="Include" />
+            <e p="AppSystem.cs" t="Include" />
+            <e p="AppView.cs" t="Include" />
+            <e p="BaseMonoBehaviour.cs" t="Include" />
+          </e>
+          <e p="Helper" t="Include">
+            <e p="ApiList.cs" t="Include" />
+            <e p="DataBaseManager.cs" t="Include" />
+          </e>
+          <e p="Models" t="Include">
+            <e p="HistoryModel.cs" t="Include" />
+            <e p="MissionModel.cs" t="Include" />
+          </e>
+          <e p="Systems" t="Include">
+            <e p="LoadingSystem.cs" t="Include" />
+          </e>
+          <e p="Views" t="Include">
+            <e p="Loading" t="Include">
+              <e p="LoadingPanel.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+      <e p="Unity-AMVC-Design-Pattern.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
