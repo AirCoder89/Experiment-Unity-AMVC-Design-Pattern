@@ -8,7 +8,7 @@ using Proyecto26;
 using UnityEngine;
 using Application = AMVC.Core.Application;
 
-namespace AMVC.Systems
+namespace AMVC.Systems.Loading
 {
     public class LoadingSystem : AppSystem
     {
@@ -56,8 +56,8 @@ namespace AMVC.Systems
 
         private void LoadingComplete()
         {
-            GetPanel<LoadingPanel>().ClosePanel();
             OnComplete?.Invoke(this._models);
+            application.LoadScene(SceneName.Main);
         }
     }
 }

@@ -1,3 +1,5 @@
+using System;
+using DG.Tweening;
 using UnityEngine;
 
 namespace AMVC.Core
@@ -9,7 +11,8 @@ namespace AMVC.Core
         public Application application { get; protected set; }
 
         private Canvas _c;
-
+        private CanvasGroup _cGroup;
+        protected bool isOpen;
         protected Canvas canvas
         {
             get
@@ -23,6 +26,16 @@ namespace AMVC.Core
         {
             View = view;
             application = app;
+            isOpen = true;
+        }
+        
+        protected CanvasGroup canvasGroup
+        {
+            get
+            {
+                if (_cGroup == null) _cGroup = GetComponent<CanvasGroup>();
+                return _cGroup;
+            }
         }
 
         public T GetSystem<T>() where T : AppSystem
@@ -41,14 +54,47 @@ namespace AMVC.Core
 
         public virtual void ResumePanel(){}
 
-        public virtual void OpenPanel()
+          //- Canvas visibility methods
+        public virtual void OpenPanelImmediately()
         {
+            if(isOpen) return;
+            isOpen = true;
             canvas.enabled = true;
+            canvasGroup.alpha = 1f;
         }
-
-        public virtual void ClosePanel()
+        
+        public virtual void OpenPanel(Action callBack = null)
         {
+            if(isOpen) return;
+            isOpen = true;
+            canvas.enabled = true;
+
+            canvasGroup.alpha = 0f;
+            canvasGroup.DOFade(1f, application.parameters.panelsFadeSpeed).OnComplete(() =>
+            {
+                callBack?.Invoke();
+            });
+        }
+        
+        public virtual void ClosePanelImmediately()
+        {
+            if(!isOpen) return;
+            isOpen = false;
+            canvasGroup.alpha = 0;
             canvas.enabled = false;
         }
+        public virtual void ClosePanel(Action callBack = null)
+        {
+            if(!isOpen) return;
+            isOpen = false;
+
+            canvasGroup.alpha = 1f;
+            canvasGroup.DOFade(0f, application.parameters.panelsFadeSpeed).OnComplete(() =>
+            {
+                callBack?.Invoke();
+                canvas.enabled = false;
+            });
+        }
     }
+
 }

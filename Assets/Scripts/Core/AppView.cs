@@ -14,7 +14,11 @@ namespace AMVC.Core
     
         public T GetPanel<T>() where T : AppPanel
         {
-            if (!_panels.ContainsKey(typeof(T))) return null;
+            if (!_panels.ContainsKey(typeof(T)))
+            {
+                Debug.LogWarning($"Panel {typeof(T)} not found");
+                return null;
+            }
             return (T) _panels[typeof(T)];
         }
     
@@ -26,9 +30,11 @@ namespace AMVC.Core
             {
                 panel.Initialize(this, app);
                 _panels.Add(panel.GetType(), panel); 
-                panel.ClosePanel();
+                print($"Add Panel To View {panel.GetType()}");
+                panel.ClosePanelImmediately();
             }
             
+            CloseAllPanel();
             if(defaultPanel) defaultPanel.OpenPanel();
         }
 
@@ -59,7 +65,7 @@ namespace AMVC.Core
         public void CloseAllPanel()
         {
             foreach (var panel in _panels)
-                panel.Value.ClosePanel();
+                panel.Value.ClosePanelImmediately();
         }
     }
 }
