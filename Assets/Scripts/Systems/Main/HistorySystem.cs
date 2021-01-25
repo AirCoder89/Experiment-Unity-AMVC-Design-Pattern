@@ -25,7 +25,7 @@ namespace AMVC.Systems.Main
                 item.Initialize(this.application);
                 item.BindData(historyModel);
                 _items.Add(item);
-                GetPanel<HistoryPanel>().AddItem(item);
+                panel.AddItem(item);
             }
             panel.GenerateItemsComplete(_items.Count);
             _isGenerated = true;

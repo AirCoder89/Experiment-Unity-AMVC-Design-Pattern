@@ -23,15 +23,13 @@ namespace AMVC.Views.Main.History
         private int _totalItems;
         private int _index;
         private bool _canTransition;
-        private HorizontalLayoutGroup _horizontalLayout;
         private HistorySystem _system;
         
         public override void Initialize(AppView view, Application app)
         {
             base.Initialize(view, app);
-            _horizontalLayout = scrollView.GetComponent<HorizontalLayoutGroup>();
             
-            backBtn.onClick.AddListener(OnClickBack);
+            backBtn.onClick.AddListener(BackToMainApp);
             nextBtn.onClick.AddListener(NextHistory);
             previousBtn.onClick.AddListener(PreviousHistory);
         }
@@ -50,9 +48,12 @@ namespace AMVC.Views.Main.History
             _system.Generate(); //Generate histories items
         }
 
-        private void OnClickBack()
+        private void BackToMainApp()
         {
-            
+            ClosePanel(() =>
+            {
+                GetPanel<MenuPanel>().OpenPanel();
+            });
         }
 
         public void AddItem(HistoryItem item)
@@ -74,7 +75,7 @@ namespace AMVC.Views.Main.History
 
         private void NextHistory()
         {
-            if(_index >= _totalItems || !_canTransition) return;
+            if(_index >= _totalItems-1 || !_canTransition) return;
             _index++;
             ScrollTo(_index);
         }

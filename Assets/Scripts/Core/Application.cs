@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using AMVC.Systems;
 using AMVC.Systems.Loading;
+using AMVC.Systems.Main;
 using AMVC.Views.Main.History;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -71,14 +72,15 @@ namespace AMVC.Core
             {
                 case SceneName.Main: 
                     GetPanel<HistoryPanel>().Generate();
+                    GetSystem<MissionsSystem>().Generate();
                     break;
             }
         }
         
         private void Initialize()
         {
-            controllers.Initialize(this);
-            views.Initialize(this);
+            controllers.Initialize(this); //systems
+            views.Initialize(this); //panels
         }
     
         //[Button("Start Application", ButtonSizes.Large)]

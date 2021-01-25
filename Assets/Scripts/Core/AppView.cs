@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using AMVC.Models;
+using AMVC.Views.Loading;
+using AMVC.Views.Main.History;
 using UnityEngine;
 
 namespace AMVC.Core
@@ -30,11 +33,9 @@ namespace AMVC.Core
             {
                 panel.Initialize(this, app);
                 _panels.Add(panel.GetType(), panel); 
-                print($"Add Panel To View {panel.GetType()}");
                 panel.ClosePanelImmediately();
             }
             
-            CloseAllPanel();
             if(defaultPanel) defaultPanel.OpenPanel();
         }
 
