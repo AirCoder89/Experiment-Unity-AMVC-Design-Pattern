@@ -20,6 +20,12 @@ namespace AMVC.Systems.Loading
         [SerializeField] private bool enableDebug;
 
         private AppModel _models;
+
+        protected override void ReleaseReferences()
+        {
+            base.ReleaseReferences();
+            _models = null;
+        }
         
         public override void Initialize(AppController controller, Application app)
         {

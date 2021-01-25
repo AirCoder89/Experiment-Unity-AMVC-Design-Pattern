@@ -64,7 +64,6 @@ namespace AMVC.Core
 
         private void OnLoadSceneComplete(SceneName sceneName)
         {
-            print("Load Scene Complete");
             views = AppScene.appView;
             controllers = AppScene.appController;
             Initialize();

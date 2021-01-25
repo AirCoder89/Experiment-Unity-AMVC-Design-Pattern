@@ -10,6 +10,12 @@ namespace AMVC.Core
 
         protected bool IsRun;
         protected bool IsInitialized;
+
+        protected override void ReleaseReferences()
+        {
+            Controller = null;
+            application = null;
+        }
     
         public virtual void Initialize(AppController controller, Application app)
         {

@@ -10,6 +10,14 @@ namespace AMVC.Core
         [Required] public AppController controller;
     
         private static AppScene _instance;
+
+        protected override void ReleaseReferences()
+        {
+            views = null;
+            controller = null;
+            _instance = null;
+        }
+        
         private void Awake()
         {
             if(_instance != null) return;
@@ -18,5 +26,6 @@ namespace AMVC.Core
 
         public static AppView appView => AppScene._instance.views;
         public static AppController appController => AppScene._instance.controller;
+        
     }
 }

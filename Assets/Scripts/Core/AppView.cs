@@ -27,7 +27,15 @@ namespace AMVC.Core
             }
             return (T) _panels[typeof(T)];
         }
-    
+
+        protected override void ReleaseReferences()
+        {
+            defaultPanel = null;
+            panels = null;
+            _panels = null;
+            application = null;
+        }
+        
         public void Initialize(Application app)
         {
             application = app;

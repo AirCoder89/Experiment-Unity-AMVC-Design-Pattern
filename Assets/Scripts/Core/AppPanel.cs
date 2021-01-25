@@ -22,7 +22,14 @@ namespace AMVC.Core
                 return _c;
             }
         }
-        
+
+        protected override void ReleaseReferences()
+        {
+            View = null;
+            application = null;
+            _c = null;
+            _cGroup = null;
+        }
         public virtual void Initialize(AppView view, Application app)
         {
             View = view;
@@ -47,6 +54,7 @@ namespace AMVC.Core
         {
             return application.GetPanel<T>();
         }
+
         public virtual void Tick(){}
 
         [Button("Pause Panel")]

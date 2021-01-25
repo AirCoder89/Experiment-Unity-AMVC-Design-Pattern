@@ -11,6 +11,12 @@ namespace AMVC.Systems.Main
         [SerializeField] private string historyItemName;
         private List<HistoryItem> _items;
         private bool _isGenerated;
+
+        protected override void ReleaseReferences()
+        {
+            base.ReleaseReferences();
+            _items = null;
+        }
         
         public void Generate()
         {

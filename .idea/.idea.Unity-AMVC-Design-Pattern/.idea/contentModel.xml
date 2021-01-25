@@ -258,9 +258,9 @@
                 <e p="HistoryPanel.cs" t="Include" />
               </e>
               <e p="MenuPanel.cs" t="Include" />
-              <e p="MissionPanel.cs" t="Include" />
               <e p="Missions" t="Include">
                 <e p="MissionItem.cs" t="Include" />
+                <e p="MissionPanel.cs" t="Include" />
                 <e p="MissionPopup.cs" t="Include" />
               </e>
             </e>

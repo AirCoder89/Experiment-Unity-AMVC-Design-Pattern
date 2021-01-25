@@ -25,6 +25,16 @@ namespace AMVC.Systems.Main
             }
         }
 
+        protected override void ReleaseReferences()
+        {
+            base.ReleaseReferences();
+            _items = null;
+            _selectedMission = null;
+            _p = null;
+            
+            MissionItem.OnSelect -= OnSelectMissionItem;
+        }
+
         public override void Initialize(AppController controller, Application app)
         {
             base.Initialize(controller, app);

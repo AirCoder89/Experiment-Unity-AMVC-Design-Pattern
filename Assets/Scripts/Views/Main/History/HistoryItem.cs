@@ -24,7 +24,15 @@ namespace AMVC.Views.Main.History
                 return _rt;
             }
         }
-        
+
+        protected override void ReleaseReferences()
+        {
+            titleTxt = null;
+            detailsTxt = null;
+            _application = null;
+            _rt = null;
+        }
+
         public void Initialize(Application app)
         {
             if(_isInitialized) return;

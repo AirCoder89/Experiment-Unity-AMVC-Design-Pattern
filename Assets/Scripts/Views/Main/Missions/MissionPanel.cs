@@ -1,12 +1,11 @@
 ﻿using AMVC.Core;
 using AMVC.Models;
-using AMVC.Views.Main.Missions;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using Application = AMVC.Core.Application;
 
-namespace AMVC.Views.Main
+namespace AMVC.Views.Main.Missions
 {
     public class MissionPanel : AppPanel
     {
@@ -20,7 +19,15 @@ namespace AMVC.Views.Main
         public Ease hideEase;
 
         private bool _popup0OnScreen;
-        
+
+        protected override void ReleaseReferences()
+        {
+            base.ReleaseReferences();
+            backBtn = null;
+            popups = null;
+            itemsHolder = null;
+        }
+
         public override void Initialize(AppView view, Application app)
         {
             base.Initialize(view, app);

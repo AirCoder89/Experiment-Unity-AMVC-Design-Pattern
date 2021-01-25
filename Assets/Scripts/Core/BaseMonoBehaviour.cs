@@ -2,8 +2,10 @@ using UnityEngine;
 
 namespace AMVC.Core
 {
-    public class BaseMonoBehaviour : MonoBehaviour
+    public abstract class BaseMonoBehaviour : MonoBehaviour
     {
-        
+        protected abstract void ReleaseReferences();
+
+        private void OnDestroy() => ReleaseReferences();
     }
 }

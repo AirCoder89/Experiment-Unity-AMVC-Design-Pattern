@@ -1,5 +1,6 @@
 ﻿using AMVC.Core;
 using AMVC.Views.Main.History;
+using AMVC.Views.Main.Missions;
 using UnityEngine;
 using UnityEngine.UI;
 using Application = AMVC.Core.Application;
@@ -10,6 +11,13 @@ namespace AMVC.Views.Main
     {
         [SerializeField] private Button missionBtn;
         [SerializeField] private Button historyBtn;
+
+        protected override void ReleaseReferences()
+        {
+            base.ReleaseReferences();
+            missionBtn = null;
+            historyBtn = null;
+        }
 
         public override void Initialize(AppView view, Application app)
         {

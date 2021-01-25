@@ -18,7 +18,15 @@ namespace AMVC.Views.Main.Missions
         private Button _button;
         private Application _application;
         private bool _isInitialized;
-        
+
+        protected override void ReleaseReferences()
+        {
+            _application = null;
+            _button = null;
+            model = null;
+            missionIdTxt = null;
+        }
+
         public void Initialize(Application app)
         {
             if(_isInitialized) return;

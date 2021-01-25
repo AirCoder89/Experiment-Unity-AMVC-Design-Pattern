@@ -28,7 +28,16 @@ namespace AMVC.Views.Main.Missions
                 return _rt;
             }
         }
-        
+
+        protected override void ReleaseReferences()
+        {
+            _parentPanel = null;
+            _rt = null;
+            titleTxt = null;
+            _cGroup = null;
+            descriptionTxt = null;
+        }
+
         public void Initialize(MissionPanel parentPanel)
         {
             _cGroup = GetComponent<CanvasGroup>();

@@ -7,13 +7,19 @@ namespace AMVC.Core
 {
     public class AppController : BaseMonoBehaviour
     {
-        [HorizontalLine(2f, EColor.Blue)]
        [ReorderableList]
         [SerializeField] public List<AppSystem> systems;
         private Dictionary<Type, AppSystem> _systems;
         
         public Application application { get; private set; }
-   
+
+        protected override void ReleaseReferences()
+        {
+            systems = null;
+            _systems = null;
+            application = null;
+        }
+        
         public void Initialize(Application app)
         {
             application = app;
@@ -64,5 +70,7 @@ namespace AMVC.Core
             foreach (var system in systems)
                 system.ResetSystem();
         }
+
+        
     }
 }

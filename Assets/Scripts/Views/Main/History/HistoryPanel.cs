@@ -24,7 +24,17 @@ namespace AMVC.Views.Main.History
         private int _index;
         private bool _canTransition;
         private HistorySystem _system;
-        
+
+        protected override void ReleaseReferences()
+        {
+            base.ReleaseReferences();
+            scrollView = null;
+            backBtn = null;
+            previousBtn = null;
+            _system = null;
+            nextBtn = null;
+        }
+
         public override void Initialize(AppView view, Application app)
         {
             base.Initialize(view, app);
