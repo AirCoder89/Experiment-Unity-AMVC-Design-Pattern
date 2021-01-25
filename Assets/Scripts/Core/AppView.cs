@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using AMVC.Models;
 using AMVC.Views.Loading;
 using AMVC.Views.Main.History;
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace AMVC.Core
 {
     public class AppView : BaseMonoBehaviour
     {
+        [HorizontalLine(2f, EColor.Blue)]
         public AppPanel defaultPanel;
     
-        [SerializeField] private List<AppPanel> panels;
+        
+        [ReorderableList] [SerializeField] private List<AppPanel> panels;
         private Dictionary<Type, AppPanel> _panels;
         public Application application { get; private set; }
     
@@ -45,24 +48,25 @@ namespace AMVC.Core
                 panel.Value.Tick();
         }
 
+        [Button("Pause")]
         public void Pause()
         {
             foreach (var panel in _panels)
                 panel.Value.PausePanel();
         }
-    
+        [Button("Resume")]
         public void Resume()
         {
             foreach (var panel in _panels)
                 panel.Value.ResumePanel();
         }
-    
-        public void Reset()
+        [Button("Reset")]
+        public void ResetView()
         {
             foreach (var panel in _panels)
                 panel.Value.ResetPanel();
         }
-
+        [Button("Close All Panels")]
         public void CloseAllPanel()
         {
             foreach (var panel in _panels)

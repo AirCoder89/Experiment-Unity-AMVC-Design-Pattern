@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace AMVC.Core
@@ -48,11 +49,13 @@ namespace AMVC.Core
         }
         public virtual void Tick(){}
 
-        public virtual void ResetPanel(){}
-
+        [Button("Pause Panel")]
         public virtual void PausePanel(){}
 
+        [Button("Resume Panel")]
         public virtual void ResumePanel(){}
+        [Button("Reset Panel")]
+        public virtual void ResetPanel(){}
 
           //- Canvas visibility methods
         public virtual void OpenPanelImmediately()

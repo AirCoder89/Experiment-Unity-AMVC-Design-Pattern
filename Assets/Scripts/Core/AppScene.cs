@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using NaughtyAttributes;
+using UnityEngine;
 
 namespace AMVC.Core
 {
     public class AppScene : BaseMonoBehaviour
     {
-        public AppView views;
-        public AppController controller;
+        [HorizontalLine(2f, EColor.Blue)]
+        [Required] public AppView views;
+        [Required] public AppController controller;
     
         private static AppScene _instance;
         private void Awake()

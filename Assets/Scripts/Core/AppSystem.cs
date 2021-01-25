@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace AMVC.Core
@@ -32,24 +33,28 @@ namespace AMVC.Core
             if(!IsRun) return;
         }
 
-        public virtual void ResetSystem()
-        {
-        
-        }
-
+        [Button("Start System")]
         public virtual void StartSystem()
         {
             IsRun = true;
         }
     
+        [Button("Pause System")]
         public virtual void PauseSystem()
         {
             IsRun = false;
         }
 
+        [Button("Resume System")]
         public virtual void ResumeSystem()
         {
             IsRun = true;
+        }
+        
+        [Button("Reset System")]
+        public virtual void ResetSystem()
+        {
+        
         }
     }
 }

@@ -42,12 +42,6 @@ namespace AMVC.Views.Main.History
             base.OpenPanel(callBack);
         }
 
-        public void Generate()
-        {
-            _system = GetSystem<HistorySystem>();
-            _system.Generate(); //Generate histories items
-        }
-
         private void BackToMainApp()
         {
             ClosePanel(() =>

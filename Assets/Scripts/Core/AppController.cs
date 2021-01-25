@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace AMVC.Core
 {
     public class AppController : BaseMonoBehaviour
     {
+        [HorizontalLine(2f, EColor.Blue)]
+       [ReorderableList]
         [SerializeField] public List<AppSystem> systems;
         private Dictionary<Type, AppSystem> _systems;
+        
         public Application application { get; private set; }
    
         public void Initialize(Application app)
@@ -33,6 +37,7 @@ namespace AMVC.Core
                 system.Tick();
         }
 
+        [Button("Start")]
         public void StartController()
         {
             foreach (var system in systems)
@@ -41,18 +46,19 @@ namespace AMVC.Core
             }
         }
     
+        [Button("Pause")]
         public void Pause()
         {
             foreach (var system in systems)
                 system.PauseSystem();
         }
-    
+        [Button("Resume")]
         public void Resume()
         {
             foreach (var system in systems)
                 system.ResumeSystem();
         }
-    
+        [Button("Reset")]
         public void ResetController()
         {
             foreach (var system in systems)

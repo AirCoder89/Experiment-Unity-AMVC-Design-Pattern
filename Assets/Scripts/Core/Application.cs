@@ -3,6 +3,7 @@ using AMVC.Systems;
 using AMVC.Systems.Loading;
 using AMVC.Systems.Main;
 using AMVC.Views.Main.History;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,12 +18,13 @@ namespace AMVC.Core
     {
         private static Application _instance;
 
-        public AppModel models;
-        public AppView views;
-        public AppController controllers;
-        public AppParameters parameters;
-        
-        public bool run;
+        [HorizontalLine(2f, EColor.Blue)]
+        [Required] public AppView views;
+        [Required] public AppController controllers;
+        [Required] public AppParameters parameters;
+        [HorizontalLine(2f, EColor.Blue)]
+        [ReadOnly] public bool run;
+        [ReadOnly] public AppModel models;
         
         private void Awake()
         {
@@ -71,7 +73,7 @@ namespace AMVC.Core
             switch (sceneName)
             {
                 case SceneName.Main: 
-                    GetPanel<HistoryPanel>().Generate();
+                    GetSystem<HistorySystem>().Generate();
                     GetSystem<MissionsSystem>().Generate();
                     break;
             }
@@ -83,7 +85,7 @@ namespace AMVC.Core
             views.Initialize(this); //panels
         }
     
-        //[Button("Start Application", ButtonSizes.Large)]
+        [Button("Start Application")]
         private void StartApp()
         {
             controllers.StartController();
@@ -91,18 +93,29 @@ namespace AMVC.Core
             StartCoroutine(Tick());
         }
         
-        //[Button("Pause Application", ButtonSizes.Large)]
+        [Button("Pause Application")]
         private void PauseApp()
         {
             StopCoroutine(Tick());
+            controllers.Pause();
+            views.Pause();
             run = false;
         }
         
-        //[Button("Resume Application", ButtonSizes.Large)]
+        [Button("Resume Application")]
         private void ResumeApp()
         {
             run = true;
             StartCoroutine(Tick());
+            controllers.Resume();
+            views.Resume();
+        }
+        
+        [Button("Reset Application")]
+        private void ResetApp()
+        {
+            controllers.ResetController();
+            views.ResetView();
         }
     
         private IEnumerator Tick()
