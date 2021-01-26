@@ -18,6 +18,6 @@ The Application Model View Controller (**AMVC**) solve any dependencies issues b
 ![codeflow](https://user-images.githubusercontent.com/62396712/105911066-0e50c780-602a-11eb-9b33-b2910995d29f.png)
 
 ### Dependencies
-we can get access to any panel/system from anywhere! with **GetPanel<T<T>>** and **GetSystem<T<T>>** we can get a reference easily, think about it like **GetComponent<T<T>>**
+we can get access to any panel/system from anywhere! with **GetPanel<T<T>>** and **GetSystem<T<T>>** we can get a reference easily.
 
 ![Get](https://user-images.githubusercontent.com/62396712/105911178-33ddd100-602a-11eb-8a13-20480f633b11.png)
