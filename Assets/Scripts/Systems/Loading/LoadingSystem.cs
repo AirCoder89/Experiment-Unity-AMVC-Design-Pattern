@@ -3,6 +3,7 @@ using System.Linq;
 using AMVC.Core;
 using AMVC.Helper;
 using AMVC.Models;
+using AMVC.Systems.Loading.CommandDp;
 using AMVC.Views.Loading;
 using Proyecto26;
 using UnityEngine;
@@ -20,7 +21,8 @@ namespace AMVC.Systems.Loading
         [SerializeField] private bool enableDebug;
 
         private AppModel _models;
-
+        private CommandInvoker _invoker;
+        
         protected override void ReleaseReferences()
         {
             base.ReleaseReferences();
@@ -35,29 +37,24 @@ namespace AMVC.Systems.Loading
                 DataBaseManager.Initialize(timeOut, retries, retriesDelay, enableDebug);
         }
 
-        private void OnError(string message)
-        {
-            Debug.LogError($"Loading error : {message}");
-        }
-        
         public void StartLoading()
         {
             GetPanel<LoadingPanel>().OpenPanel();
-            var request = DataBaseManager.CreateRequest(ApiList.Missions);
-            DataBaseManager.SendRequest(request, OnGetMissionsComplete, OnError);
-        }
+            
+            _invoker = GetSystem<CommandInvoker>();
+            
+            // create mission command
+            var missionCommand = new LoadingCommand<MissionModel>(ApiList.Missions);
+            missionCommand.OnComplete += result => _models.missions = result;
+            _invoker.AddCommand(missionCommand);
 
-        private void OnGetMissionsComplete(string jsonResult)
-        {
-            _models.missions = JsonHelper.ArrayFromJson<MissionModel>(jsonResult).ToList();
-            var request = DataBaseManager.CreateRequest(ApiList.History);
-            DataBaseManager.SendRequest(request, OnGetHistoryComplete, OnError);
-        }
-
-        private void OnGetHistoryComplete(string jsonResult)
-        {
-            _models.history = JsonHelper.ArrayFromJson<HistoryModel>(jsonResult).ToList();
-            LoadingComplete();
+            //create history command
+            var historyCommand = new LoadingCommand<HistoryModel>(ApiList.History);
+            historyCommand.OnComplete += result => _models.history = result;
+            _invoker.AddCommand(historyCommand);
+            
+            _invoker.OnComplete += LoadingComplete;
+            _invoker.StartInvoker();
         }
 
         private void LoadingComplete()

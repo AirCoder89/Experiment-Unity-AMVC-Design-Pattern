@@ -240,6 +240,11 @@
           </e>
           <e p="Systems" t="Include">
             <e p="Loading" t="Include">
+              <e p="CommandDp" t="Include">
+                <e p="CommandInvoker.cs" t="Include" />
+                <e p="ICommand.cs" t="Include" />
+                <e p="LoadingCommand.cs" t="Include" />
+              </e>
               <e p="LoadingSystem.cs" t="Include" />
             </e>
             <e p="Main" t="Include">

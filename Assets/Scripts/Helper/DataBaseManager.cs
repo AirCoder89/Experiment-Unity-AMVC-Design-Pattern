@@ -1,5 +1,6 @@
 using System;
 using Proyecto26;
+using UnityEngine;
 
 namespace AMVC.Helper
 {
@@ -50,7 +51,7 @@ namespace AMVC.Helper
                 .Catch(err =>
                 {
                     onError?.Invoke(err.Message);
-                });
+                }) ;
         }
         
         //overloading SendRequest method

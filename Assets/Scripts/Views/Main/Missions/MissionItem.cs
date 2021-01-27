@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Input;
 using AMVC.Core;
 using AMVC.Models;
 using AMVC.Systems;
@@ -59,5 +60,6 @@ namespace AMVC.Views.Main.Missions
         {
             _application.GetSystem<PoolSystem>().Despawn(this.transform);
         }
+
     }
 }

@@ -10,7 +10,7 @@ namespace AMVC.Core
         [Required] public AppController controller;
     
         private static AppScene _instance;
-
+        
         protected override void ReleaseReferences()
         {
             views = null;

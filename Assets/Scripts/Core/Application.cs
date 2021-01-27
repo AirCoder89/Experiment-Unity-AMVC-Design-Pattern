@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using AMVC.Helper;
 using AMVC.Systems;
 using AMVC.Systems.Loading;
 using AMVC.Systems.Main;
@@ -39,6 +40,7 @@ namespace AMVC.Core
         private void Start()
         {
             Initialize();
+            StartApp();
             StartLoading();
         }
     
@@ -48,7 +50,7 @@ namespace AMVC.Core
             loadingSystem.OnComplete += model => this.models = model;
             loadingSystem.StartLoading();
         }
-    
+
         public void LoadScene(SceneName sceneName)
         {
             StopCoroutine(Tick());
@@ -121,7 +123,6 @@ namespace AMVC.Core
         {
             while (run)
             {
-                print("Tick");
                 controllers.Tick();
                 views.Tick();
                 yield return null;
