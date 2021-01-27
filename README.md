@@ -11,11 +11,11 @@ The Application Model View Controller (**AMVC**) solve any dependencies issues b
 2. Views : UI Panels (Canvas Component).
 3. Controllers : Application systems.
 
-![amvc](https://user-images.githubusercontent.com/62396712/105910882-d3e72a80-6029-11eb-8cb2-f5c2744b3c86.png)
+![Amvc](https://user-images.githubusercontent.com/62396712/105978387-c44ffc00-6092-11eb-8b35-88cac0d0dcf1.png)
 
 ### Single Entry Point
 
-![codeflow](https://user-images.githubusercontent.com/62396712/105911066-0e50c780-602a-11eb-9b33-b2910995d29f.png)
+![entryPt](https://user-images.githubusercontent.com/62396712/105978435-d5007200-6092-11eb-80a5-85a82338aa8c.png)
 
 ### Dependencies
 we can get access to any panel/system from anywhere! with **GetPanel<T<T>>** and **GetSystem<T<T>>** we can get a reference easily.
