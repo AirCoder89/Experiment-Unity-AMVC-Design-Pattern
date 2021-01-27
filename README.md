@@ -11,7 +11,7 @@ The Application Model View Controller (**AMVC**) solve any dependencies issues b
 2. Views : UI Panels (Canvas Component).
 3. Controllers : Application systems.
 
-![Amvc](https://user-images.githubusercontent.com/62396712/105978387-c44ffc00-6092-11eb-8b35-88cac0d0dcf1.png)
+![Amvc](https://user-images.githubusercontent.com/62396712/105978631-0da04b80-6093-11eb-8285-fa04ec5674d1.png)
 
 ### Single Entry Point
 
