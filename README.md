@@ -17,8 +17,5 @@ The Application Model View Controller (AMVC) manages dependencies by splitting t
 AMVC Structure:
 ![Amvc](https://user-images.githubusercontent.com/62396712/105978631-0da04b80-6093-11eb-8285-fa04ec5674d1.png)
 
-Single Entry Point:
-![entryPt](https://user-images.githubusercontent.com/62396712/105978435-d5007200-6092-11eb-80a5-85a82338aa8c.png)
-
 Access panels and systems from anywhere with **GetPanel<T<T>>** and **GetSystem<T<T>>** respectively.
 ![Get](https://user-images.githubusercontent.com/62396712/105911178-33ddd100-602a-11eb-8a13-20480f633b11.png)
